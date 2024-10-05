@@ -1,0 +1,97 @@
+C51 COMPILER V9.53.0.0   TRAFLIG                                                           08/30/2024 10:12:21 PAGE 1   
+
+
+C51 COMPILER V9.53.0.0, COMPILATION OF MODULE TRAFLIG
+OBJECT MODULE PLACED IN traflig.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE traflig.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<regx52.h>
+   2          #define LIGHTS P1
+   3          #define SEGMENT P2
+   4          void delay(unsigned int);
+   5          void display(unsigned char);
+   6          void redandgreen();
+   7          void yellow();
+   8          void main()
+   9          {
+  10   1      while(1)
+  11   1      {
+  12   2      redandgreen();
+  13   2      yellow();
+  14   2      }}
+  15          void redandgreen()
+  16          {
+  17   1      unsigned char i;
+  18   1      P1=0x01;
+  19   1      for(i=0;i<10;i++)
+  20   1      {
+  21   2      display(i);
+  22   2      delay(1000);
+  23   2      }
+  24   1      P1=0x02;
+  25   1      for(i=0;i<10;i++)
+  26   1      {
+  27   2      display(i);
+  28   2      delay(1000);
+  29   2      }}
+  30          void yellow()
+  31          {
+  32   1      unsigned char i;
+  33   1      P1=0x04;
+  34   1      for(i=1;i<6;i++)
+  35   1      {
+  36   2      display(i);
+  37   2      delay(1000);
+  38   2      }}
+  39          void delay(unsigned int a)
+  40          {
+  41   1      unsigned char i;
+  42   1      for(;a>0;a--)
+  43   1      {
+  44   2      for(i=250;i>0;i--);
+  45   2      }}
+  46          void display(unsigned char num)
+  47          {
+  48   1      switch(num)
+  49   1      {
+  50   2        case 1:SEGMENT=0x06;
+  51   2        break;
+  52   2        case 2:SEGMENT=0x5B;
+  53   2        break;
+  54   2        case 3:SEGMENT=0x4F;
+  55   2        break;
+C51 COMPILER V9.53.0.0   TRAFLIG                                                           08/30/2024 10:12:21 PAGE 2   
+
+  56   2        case 4:SEGMENT=0x66;
+  57   2        break;
+  58   2        case 5:SEGMENT=0x6D;
+  59   2        break;
+  60   2        case 6:SEGMENT=0x7D;
+  61   2        break;
+  62   2        case 7:SEGMENT=0x07;
+  63   2        break;
+  64   2        case 8:SEGMENT=0x7F;
+  65   2        break;
+  66   2        case 9:SEGMENT=0x6F;
+  67   2        break;
+  68   2        case 10:SEGMENT=0x3F;
+  69   2        break;
+  70   2      }}
+  71          
+  72          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    195    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

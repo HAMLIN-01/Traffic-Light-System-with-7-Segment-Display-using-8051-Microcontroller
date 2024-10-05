@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"traflig.obj" 
+TO "trafficlight" 
+RAMSIZE(256) 
